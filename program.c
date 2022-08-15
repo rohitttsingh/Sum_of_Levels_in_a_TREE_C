@@ -22,20 +22,11 @@ void printArr(int arr[], int n)
 		cout << arr[i] << endl;
 }
 
-int getHeight(Node* root)
-{
-	if (root->left == NULL && root->right == NULL)
-		return 0;
+int getHeight(Node*root){
+    if(root==NULL) return -1;
+    
+return max(height(root->left),height(root->right))+1;
 
-	int left = 0;
-	if (root->left != NULL)
-		left = getHeight(root->left);
-
-	int right = 0;
-	if (root->right != NULL)
-		right = getHeight(root->right);
-
-	return (max(left, right) + 1);
 }
 
 void calculateLevelSum(Node* node, int level, int sum[])
